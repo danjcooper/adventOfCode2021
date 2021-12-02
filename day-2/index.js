@@ -9,30 +9,31 @@ const parseData = () => {
   }
 };
 
-let data = parseData().split('\n');
+const main = () => {
+  let data = parseData().split('\n');
 
-console.log(data);
-
-for (let i = 0; i < data.length; i++) {
-  data[i] = data[i].split(' ');
-}
-
-let depth = 0;
-let forward = 0;
-let aim = 0;
-
-console.log(data);
-data.forEach((item) => {
-  if (item.includes('down')) {
-    aim += parseInt(item[1]);
-  } else if (item.includes('up')) {
-    aim -= parseInt(item[1]);
-  } else {
-    forward += parseInt(item[1]);
-    depth += aim * parseInt(item[1]);
+  for (let i = 0; i < data.length; i++) {
+    data[i] = data[i].split(' ');
   }
-});
 
-console.log(
-  `Depth: ${depth}\nForward: ${forward}\nCombined: ${depth * forward}`
-);
+  let depth = 0;
+  let forward = 0;
+  let aim = 0;
+
+  data.forEach((item) => {
+    if (item.includes('down')) {
+      aim += parseInt(item[1]);
+    } else if (item.includes('up')) {
+      aim -= parseInt(item[1]);
+    } else {
+      forward += parseInt(item[1]);
+      depth += aim * parseInt(item[1]);
+    }
+  });
+
+  console.log(
+    `Depth: ${depth}\nForward: ${forward}\nCombined: ${depth * forward}`
+  );
+};
+
+main();
