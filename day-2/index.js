@@ -24,14 +24,10 @@ console.log(data);
 data.forEach((item) => {
   if (item.includes('down')) {
     depth += parseInt(item[1]);
-    console.log('going down');
   } else if (item.includes('up')) {
     depth -= parseInt(item[1]);
-    console.log('going up');
   } else {
     forward += parseInt(item[1]);
-    console.log(forward);
-    console.log('going forward');
   }
 });
 
