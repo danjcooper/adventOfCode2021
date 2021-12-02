@@ -19,15 +19,17 @@ for (let i = 0; i < data.length; i++) {
 
 let depth = 0;
 let forward = 0;
+let aim = 0;
 
 console.log(data);
 data.forEach((item) => {
   if (item.includes('down')) {
-    depth += parseInt(item[1]);
+    aim += parseInt(item[1]);
   } else if (item.includes('up')) {
-    depth -= parseInt(item[1]);
+    aim -= parseInt(item[1]);
   } else {
     forward += parseInt(item[1]);
+    depth += aim * parseInt(item[1]);
   }
 });
 
